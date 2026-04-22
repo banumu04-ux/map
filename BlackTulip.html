@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Мемориал «Чёрный тюльпан»</title>
+    <meta name="description" content="Мемориал «Чёрный тюльпан» в Екатеринбурге — памятник воинам-интернационалистам, погибшим в Афганистане, Чечне и других локальных конфликтах. История, символика, описание.">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', 'Times New Roman', Times, serif;
+            background-color: #0a0c12;
+            color: #e0e0e0;
+            line-height: 1.6;
+            scroll-behavior: smooth;
+        }
+
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #1a1c24;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #4a3b2c;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #6b4c32;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Segoe UI', 'Roboto', 'Helvetica Neue', sans-serif;
+            font-weight: 400;
+            letter-spacing: 1px;
+        }
+
+        h1 {
+            font-size: 3rem;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+        }
+
+        h2 {
+            font-size: 2rem;
+            border-left: 4px solid #b87c4f;
+            padding-left: 1rem;
+            margin: 2rem 0 1.5rem 0;
+            color: #f0e6d2;
+        }
+
+        h3 {
+            font-size: 1.4rem;
+            margin: 1.5rem 0 0.8rem 0;
+            color: #d9c5a7;
+        }
+
+        .hero {
+            position: relative;
+            height: 100vh;
+            min-height: 600px;
+            background: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.85)), url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?q=80&w=2070&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center 30%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            border-bottom: 1px solid #2c241c;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            padding: 0 1.5rem;
+            animation: fadeInUp 1.2s ease-out;
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            font-style: italic;
+            color: #f0e0cc;
+        }
+
+        .btn {
+            display: inline-block;
+            background: #b87c4f;
+            color: #0a0c12;
+            padding: 0.8rem 2rem;
+            text-decoration: none;
+            font-weight: bold;
+            letter-spacing: 1px;
+            border-radius: 40px;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .btn:hover {
+            background: #d49c6c;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .info-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .info-card {
+            background: #12141c;
+            border-radius: 20px;
+            padding: 1.8rem;
+            flex: 1 1 280px;
+            transition: transform 0.2s, box-shadow 0.2s;
+            border: 1px solid #2a241e;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+
+        .info-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 30px rgba(0,0,0,0.4);
+            border-color: #b87c4f;
+        }
+
+        .info-card i {
+            font-size: 2rem;
+            color: #b87c4f;
+            margin-bottom: 1rem;
+            display: inline-block;
+        }
+
+        .symbolism {
+            background: #0e1018;
+            border-radius: 30px;
+            padding: 2rem;
+            margin: 2rem 0;
+            border-left: 6px solid #b87c4f;
+        }
+
+        .names-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            list-style: none;
+            margin-top: 1rem;
+        }
+        .names-list li {
+            background: #1e212c;
+            padding: 0.3rem 1rem;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            font-family: monospace;
+        }
+
+        footer {
+            background: #05070c;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 3rem;
+            border-top: 1px solid #2a241e;
+            font-size: 0.85rem;
+            color: #8a8a8a;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+            h2 {
+                font-size: 1.6rem;
+            }
+            .container {
+                padding: 0 1.2rem;
+            }
+            .hero {
+                height: 80vh;
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <section class="hero">
+        <div class="hero-content">
+            <h1>«Чёрный тюльпан»</h1>
+            <p>📍 Лодейное Поле, проспект Ленина.</p>
+            <a href="#about" class="btn">Узнать историю</a>
+        </div>
+    </section>
+
+    <div class="container">
+        <section id="about">
+            <h2>О мемориале</h2>
+            <p style="font-size:1.1rem;"><strong>«Чёрный тюльпан»</strong> - один из самых пронзительных памятников на территории постсоветского пространства, посвящённый воинам, павшим в Афганистане (1979-1989), Чечне (1994-1996, 1999-2000), Дагестане и других локальных конфликтах XX-XXI веков. Главный мемориал находится в <strong>Екатеринбурге</strong>, на площади Советской Армии, но подобные монументы установлены также в Норильске, Пятигорске, Хабаровске, Рузаевке, Новокузнецке и других городах России.</p>
+            <p>Название «Чёрный тюльпан» - это не цветочная метафора, а горький символ войны. Именно так афганцы называли военно-транспортный самолёт Ан-12, который увозил на Родину тела погибших солдат. Сегодня мемориал стал местом поклонения, проведения патриотических митингов и возложения цветов.</p>
+        </section>
+
+        <h2>История создания</h2>
+        <div class="info-grid">
+            <div class="info-card">
+                <h3>Инициатива и конкурс</h3>
+                <p>В 1991 году Свердловское областное отделение Российского Союза ветеранов Афганистана объявило конкурс проектов. В нём участвовало 15 работ, которые обсуждались с семьями погибших. Победил проект архитектора <strong>Андрея Серова</strong> и скульптора <strong>Константина Грюнберга</strong>.</p>
+            </div>
+            <div class="info-card">
+                <h3>Строительство и пожертвования</h3>
+                <p>Средства собирали всем миром: добровольные взносы организаций, предприятий и частных лиц. Помогали бюджеты области и города, а также командование Уральского военного округа. Строительство велось с 1992 по 1995 год на Екатеринбургском заводе им. Калинина.</p>
+            </div>
+        </div>
+
+        <h2>«Чёрные тюльпаны» в других городах</h2>
+        <p>Мемориалы с таким же названием существуют в Норильске, Пятигорске, Хабаровске, Рузаевке, Серпухове, Наро-Фоминске, Петрозаводске и Новокузнецке. Везде они посвящены местным жителям, не вернувшимся из горячих точек.</p>
+    </div>
+
+    <footer>
+        <p style="margin-top: 0.8rem;">© Кванториум 2026</p>
+    </footer>
+</body>
+</html>

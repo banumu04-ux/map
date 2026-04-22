@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Мемориальный парк «Свирская победа»</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0a0f0c;
+            color: #eaece5;
+            line-height: 1.5;
+            scroll-behavior: smooth;
+        }
+
+        .hero {
+            min-height: 85vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 2rem;
+            position: relative;
+            background: linear-gradient(117deg, #0b2a1f 0%, #0a110d 100%);
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('https://ic.pics.livejournal.com/ivannovikov/20208892/4359933/4359933_original.jpg');
+            background-size: cover;
+            background-position: center 30%;
+            background-repeat: no-repeat;
+            opacity: 0.55;
+            z-index: 1;
+            transition: opacity 0.3s ease;
+        }
+
+        .hero::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(8, 18, 12, 0.45);
+            z-index: 2;
+            pointer-events: none;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            z-index: 10;
+            position: relative;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.6rem, 8vw, 4.8rem);
+            font-weight: 500;
+            letter-spacing: -0.01em;
+            background: linear-gradient(135deg, #f3e9cf, #c7a86b);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: #f0f3ea;
+            text-shadow: 0 1px 4px rgba(0,0,0,0.3);
+            max-width: 600px;
+            margin: 1rem auto 0;
+        }
+
+        .section {
+            padding: 5rem 2rem;
+            max-width: 1280px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: 500;
+            margin-bottom: 3rem;
+            border-left: 5px solid #c7a86b;
+            padding-left: 1.5rem;
+            letter-spacing: -0.3px;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .card {
+            background: rgba(30, 36, 30, 0.65);
+            backdrop-filter: blur(4px);
+            border-radius: 32px;
+            padding: 2rem;
+            transition: transform 0.2s ease, background 0.2s;
+            border: 1px solid rgba(199, 168, 107, 0.25);
+        }
+
+        .card:hover {
+            background: rgba(40, 48, 38, 0.8);
+            transform: translateY(-5px);
+            border-color: rgba(199, 168, 107, 0.6);
+        }
+
+        .card h3 {
+            font-size: 1.7rem;
+            font-weight: 500;
+            margin-bottom: 1rem;
+            color: #e2d6b6;
+        }
+
+        .card p {
+            color: #bcc7b5;
+            font-size: 0.95rem;
+        }
+
+        .quote-block {
+            background: #111b14;
+            border-radius: 48px;
+            padding: 3rem;
+            margin-top: 3rem;
+            text-align: center;
+            font-style: italic;
+            font-size: 1.3rem;
+            border: 1px solid #2e3a2a;
+        }
+
+        .memorial-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.2rem;
+            justify-content: center;
+            margin-top: 2rem;
+        }
+
+        .memorial-item {
+            background: #1d2b1f;
+            padding: 0.8rem 1.6rem;
+            border-radius: 60px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: #ebddb0;
+            letter-spacing: 0.3px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 3rem 2rem 2.5rem;
+            border-top: 1px solid rgba(199, 168, 107, 0.25);
+            font-size: 0.8rem;
+            color: #8f9a89;
+            background: #070b08;
+        }
+
+        footer a {
+            color: #c7a86b;
+            text-decoration: none;
+        }
+
+        @media (max-width: 680px) {
+            .section {
+                padding: 3rem 1.5rem;
+            }
+            .hero::before {
+                background-position: center 40%;
+            }
+        }
+    .memorial-gallery {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 2rem;
+        margin-top: 1rem;
+    }
+    
+    .memorial-card {
+        background: rgba(30, 36, 30, 0.65);
+        backdrop-filter: blur(4px);
+        border-radius: 24px;
+        overflow: hidden;
+        border: 1px solid rgba(199, 168, 107, 0.25);
+        transition: transform 0.2s ease, background 0.2s;
+    }
+    
+    .memorial-card:hover {
+        transform: translateY(-5px);
+        background: rgba(40, 48, 38, 0.8);
+        border-color: rgba(199, 168, 107, 0.6);
+    }
+    
+    .memorial-image {
+        width: 100%;
+        height: 220px;
+        overflow: hidden;
+    }
+    
+    .memorial-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+    }
+    
+    .memorial-caption {
+        padding: 1.2rem;
+        text-align: center;
+        font-weight: 500;
+        color: #ebddb0;
+        font-size: 1rem;
+    }        
+    </style>
+</head>
+<body>
+
+<main>
+    <div class="hero">
+        <div class="hero-content">
+            <h1>Свирская победа</h1>
+            <p>Мемориальный парк · место памяти и тишины <br> на берегу Свири</p>
+            <p>📍 Лодейнопольский район, Ленинградская область</p>
+        </div>
+    </div>
+
+    <section class="section">
+        <div class="section-title">Летопись подвига</div>
+        <div class="grid-2">
+            <div class="card">
+                <h3>1944</h3>
+                <p>Свирско-Петрозаводская операция - разгром финской группировки на реке Свирь. Прорыв линии обороны, форсирование реки и освобождение южной Карелии.</p>
+            </div>
+            <div class="card">
+                <h3>Память</h3>
+                <p>В парке восстановлены траншеи, доты, братские захоронения. Здесь чтут каждого, кто пал за свободу. Вечный огонь и сосны - свидетели истории.</p>
+            </div>
+        </div>
+        <div class="quote-block">
+            «Никто не забыт, ничто не забыто» - здесь эти слова оживают среди вековых деревьев и тишины.
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="section-title">Мемориальный комплекс</div>
+        <div class="memorial-gallery">
+            <div class="memorial-card">
+                <div class="memorial-image">
+                    <img src="https://static.78.ru/images/uploads/1716837957716.jpg" alt="Мемориал">
+                </div>
+                <div class="memorial-caption">Вход в мемориальный парк</div>
+            </div>
+            <div class="memorial-card">
+                <div class="memorial-image">
+                    <img src="https://avatars.mds.yandex.net/get-altay/10702157/2a0000018a6fe587e11a15f653300df8d30a/orig" alt="Мемориал">
+                </div>
+                <div class="memorial-caption">Памятник "Приказ"</div>
+            </div>
+            <div class="memorial-card">
+                <div class="memorial-image">
+                    <img src="https://ic.pics.livejournal.com/cr2/25595167/2122977/2122977_original.jpg" alt="Мемориал">
+                </div>
+                <div class="memorial-caption">Памятник Петру 1</div>
+            </div>
+            <div class="memorial-card">
+                <div class="memorial-image">
+                    <img src="https://ic.pics.livejournal.com/ivannovikov/20208892/4361856/4361856_original.jpg" alt="Мемориал">
+                </div>
+                <div class="memorial-caption">Лодейнопольский историко-краеведческий музей</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="section-title">Парк сегодня</div>
+        <div class="grid-2">
+            <div class="card">
+                <h3>Экотропа</h3>
+                <p>Маршрут проходит через места боёв, с информационными щитами, дзотами и смотровыми площадками на реку.</p>
+            </div>
+            <div class="card">
+                <h3>Музей под открытым небом</h3>
+                <p>Образцы военной техники, восстановленные блиндажи, карты сражений. Вход свободный.</p>
+            </div>
+            <div class="card">
+                <h3>Место тишины</h3>
+                <p>Зона для медитации и возложения цветов. Лавочки, молодые берёзы, звук ветра и воды.</p>
+            </div>
+            <div class="card">
+                <h3>Экскурсии</h3>
+                <p>По предварительной записи - исторические реконструкции, лекции и уроки мужества.</p>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <p style="margin-top: 1.2rem; font-size: 0.7rem;">© Кванториум 2026</p>
+</footer>
+
+</body>
+</html>

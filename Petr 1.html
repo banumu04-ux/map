@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Памятник Петру I</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', 'Roboto', 'Georgia', serif;
+            background: #d4eaf5;
+            color: #1a3a4f;
+            line-height: 1.5;
+            scroll-behavior: smooth;
+            background-image: radial-gradient(circle at 10% 20%, rgba(30, 100, 140, 0.06) 2%, transparent 2.5%),
+                              radial-gradient(circle at 80% 70%, rgba(50, 130, 170, 0.05) 1.5%, transparent 2%);
+            background-size: 45px 45px, 35px 35px;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, #1a6b8a 0%, #0f4c6b 100%);
+            color: white;
+            padding: 2.5rem 0 2.8rem 0;
+            text-align: center;
+            border-bottom-left-radius: 48px;
+            border-bottom-right-radius: 48px;
+            box-shadow: 0 20px 35px -12px rgba(0,0,0,0.25);
+            position: relative;
+            overflow: hidden;
+            margin-bottom: 2.5rem;
+        }
+        .hero::before {
+            content: "⚓";
+            font-size: 220px;
+            opacity: 0.08;
+            position: absolute;
+            bottom: -30px;
+            right: -30px;
+            transform: rotate(15deg);
+            pointer-events: none;
+        }
+        .hero::after {
+            content: "⛵";
+            font-size: 150px;
+            opacity: 0.08;
+            position: absolute;
+            top: -20px;
+            left: -20px;
+            transform: rotate(-10deg);
+            pointer-events: none;
+        }
+
+        .hero h1 {
+            font-size: 2.6rem;
+            letter-spacing: -0.01em;
+            margin-bottom: 0.6rem;
+            font-weight: 700;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.2);
+            position: relative;
+        }
+        .hero .sub {
+            font-size: 1.2rem;
+            opacity: 0.95;
+            font-weight: 400;
+        }
+        .hero .location {
+            margin-top: 1.2rem;
+            font-size: 1rem;
+            background: rgba(255,215,150,0.2);
+            display: inline-block;
+            padding: 0.45rem 1.6rem;
+            border-radius: 80px;
+            backdrop-filter: blur(6px);
+            font-weight: 500;
+            border: 1px solid rgba(255,215,150,0.4);
+        }
+
+        /* НОВАЯ СЕТКА: центральная колонка + боковые */
+        .main-layout {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.8rem;
+            margin-bottom: 2rem;
+        }
+
+        /* Центральная колонка (главная информация + фото) */
+        .center-col {
+            flex: 2;
+            min-width: 280px;
+        }
+
+        /* Левая и правая боковые колонки */
+        .side-col {
+            flex: 1;
+            min-width: 260px;
+            display: flex;
+            flex-direction: column;
+            gap: 1.8rem;
+        }
+
+        /* Стили для карточек в центре */
+        .center-card {
+            background: rgba(255, 255, 255, 0.96);
+            border-radius: 48px;
+            box-shadow: 0 25px 45px -12px rgba(0, 0, 0, 0.15);
+            overflow: hidden;
+            transition: all 0.35s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+            border: 1px solid rgba(64, 164, 196, 0.3);
+            margin-bottom: 1.8rem;
+        }
+        .center-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 30px 50px -15px rgba(0, 0, 0, 0.2);
+        }
+
+        .card-text {
+            padding: 2rem 2rem;
+        }
+        .card-text h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: #1a6b8a;
+            border-left: 6px solid #e6a017;
+            padding-left: 1.2rem;
+            background: linear-gradient(135deg, #1a6b8a 0%, #2f8eb0 100%);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            text-align: center;
+            border-left: none;
+            border-bottom: 2px solid #e6a017;
+            display: inline-block;
+            width: auto;
+            margin-left: auto;
+            margin-right: auto;
+            padding-bottom: 0.5rem;
+        }
+        .card-text p {
+            margin-bottom: 1rem;
+            font-size: 1rem;
+            color: #2c4a5e;
+            text-align: center;
+        }
+        .quote {
+            font-style: italic;
+            background: #eef7fc;
+            padding: 1rem 1.4rem;
+            border-radius: 32px;
+            margin: 1rem 0;
+            border-left: 5px solid #e6a017;
+            color: #1a5a74;
+            font-weight: 500;
+            text-align: center;
+        }
+        .center-img {
+            width: 100%;
+            background: #bddce8;
+            min-height: 380px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        .center-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.6s ease;
+        }
+        .center-card:hover .center-img img {
+            transform: scale(1.02);
+        }
+
+        /* Универсальные карточки для боковых колонок */
+        .side-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(1px);
+            border-radius: 38px;
+            padding: 1.5rem 1.6rem;
+            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08);
+            transition: 0.2s;
+            border: 1px solid rgba(64, 164, 196, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+        .side-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 18px 32px -10px rgba(0, 0, 0, 0.12);
+        }
+        .side-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #1a6b8a;
+            border-left: 4px solid #e6a017;
+            padding-left: 0.8rem;
+            font-weight: 650;
+        }
+        .side-card p {
+            font-size: 0.95rem;
+            margin-bottom: 0.8rem;
+            color: #2c4a5e;
+        }
+        .facts-list-side {
+            list-style: none;
+            margin-top: 0.5rem;
+        }
+        .facts-list-side li {
+            background: #f0f8fc;
+            padding: 0.7rem 1rem;
+            border-radius: 28px;
+            margin-bottom: 0.7rem;
+            font-weight: 500;
+            border: 1px solid #cde5ef;
+            transition: all 0.2s;
+            font-size: 0.9rem;
+        }
+        .facts-list-side li strong {
+            color: #e6a017;
+        }
+        .legend-text, .history-text {
+            font-size: 0.95rem;
+            line-height: 1.45;
+        }
+        .small-quote {
+            font-style: italic;
+            background: #eef7fc;
+            padding: 0.8rem;
+            border-radius: 24px;
+            margin: 0.8rem 0;
+            border-left: 3px solid #e6a017;
+            font-size: 0.9rem;
+        }
+
+        .address-block {
+            background: #d9eef7;
+            border-radius: 28px;
+            padding: 1rem;
+            margin-top: 0.8rem;
+            text-align: center;
+        }
+        .btn-small {
+            display: inline-block;
+            background: #e6a017;
+            color: #1e2f2c;
+            padding: 0.4rem 1rem;
+            border-radius: 60px;
+            text-decoration: none;
+            font-weight: 700;
+            margin-top: 0.6rem;
+            transition: 0.2s;
+            font-size: 0.85rem;
+        }
+        .btn-small:hover {
+            background: #f0b83a;
+            transform: scale(0.96);
+        }
+
+        footer {
+            background: #0f4c6b;
+            color: #cde5ef;
+            text-align: center;
+            padding: 2rem 0;
+            border-top-left-radius: 48px;
+            border-top-right-radius: 48px;
+            margin-top: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+        footer::before {
+            content: "⚓";
+            font-size: 100px;
+            opacity: 0.07;
+            position: absolute;
+            bottom: 0;
+            left: 20px;
+        }
+
+        @media (max-width: 1000px) {
+            .main-layout {
+                flex-direction: column;
+            }
+            .side-col {
+                flex-direction: row;
+                flex-wrap: wrap;
+            }
+            .side-col .side-card {
+                flex: 1;
+                min-width: 250px;
+            }
+        }
+        @media (max-width: 700px) {
+            .hero h1 {
+                font-size: 1.9rem;
+            }
+            .side-col {
+                flex-direction: column;
+            }
+            .card-text h2 {
+                font-size: 1.6rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<section class="hero">
+    <div class="container">
+        <h1> Памятник Петру I</h1>
+        <div class="sub">Памятник основателю города и Олонецкой верфи</div>
+        <div class="location">📍 Лодейное Поле, сквер имени Петра Великого</div>
+    </div>
+</section>
+
+<main class="container">
+    <div class="main-layout">
+        <div class="side-col">
+            <div class="side-card">
+                <h3>Ключевые факты</h3>
+                <ul class="facts-list-side">
+                    <li><strong>Олонецкая верфь</strong> - основана Петром I в 1702 г.</li>
+                    <li><strong>Открытие</strong> - 6 сентября 2002 г.</li>
+                    <li><strong>Скульптор</strong> - В.М. Павлов</li>
+                </ul>
+            </div>
+        </div>
+        <div class="center-col">
+            <div class="center-card">
+                <div class="center-img">
+                    <img src="https://ic.pics.livejournal.com/cr2/25595167/2122977/2122977_original.jpg" 
+                         alt="Памятник Петру I в Лодейном Поле"
+                         onerror="this.onerror=null; this.src='https://placehold.co/800x500/1a6b8a/white?text=Памятник+Петру+I'">
+                </div>
+                <div class="card-text">
+                    <h2>Царь-корабль на Свири</h2>
+                    <p><strong>Памятник Петру I в Лодейном Поле</strong> - главная достопримечательность города, установленная в 2002 году в честь 300-летия основания Олонецкой верфи. Именно здесь, на берегах Свири, Пётр Великий заложил первые корабли Балтийского флота: фрегаты «Штандарт», «Олимп» и другие суда, изменившие историю России.</p>
+                    <p>Император изображён в мундире Преображенского полка, с решительным взглядом, устремлённым на реку Свирь - туда, где когда-то кипела работа на стапелях. Бронзовая фигура символизирует энергию преобразователя, лично руководившего строительством верфи.</p>
+                    <div class="quote">
+                        «Здесь, на берегах Свири, Пётр Великий создал флот, который изменил историю. Лодейное Поле - колыбель русского Балтийского флота».
+                    </div>
+                    <p>Ежегодно у подножия монумента проходят торжественные церемонии, возложение цветов в День ВМФ и День города. Памятник стал не только украшением, но и духовным центром Лодейного Поля, местом притяжения туристов и моряков.</p>
+                </div>
+            </div>
+            <div class="center-card">
+                <div class="card-text">
+                    <h2>Архитектурные особенности</h2>
+                    <p>Высота бронзовой скульптуры - около 3,5 метров, вместе с гранитным постаментом - более 5 метров. Постамент изготовлен из красного гранита, добытого в Карелии, что символизирует твёрдость петровских реформ. На лицевой стороне высечена надпись: <em>«Основателю города Лодейное Поле и Олонецкой верфи Петру I от благодарных жителей»</em>.</p>
+                    <p>Правая рука императора указывает в сторону Свири, левая покоится на эфесе шпаги. Этот жест - напоминание о морской славе и защите Отечества. Взгляд Петра обращён вдаль, туда, где строились первые корабли.</p>
+                </div>
+            </div>
+        </div>
+        <div class="side-col">
+            <div class="side-card">
+                <h3>Колыбель флота</h3>
+                <div class="history-text">
+                    <p>Олонецкая верфь, основанная Петром I в 1702 году, дала жизнь более чем 100 кораблям. Именно отсюда вышли суда, обеспечившие победу в Северной войне.</p>
+                    <p>Ежегодный фестиваль «Корабельная сторона» у памятника воссоздаёт атмосферу петровских времён: реконструкции спуска судов, пушечные залпы и указы государя.</p>
+                </div>
+                <div class="small-quote">
+                    «Памятник Петру - символ несгибаемой воли и рождения русского флота»
+                </div>
+            </div>
+            <div class="side-card">
+                <h3>Народная память</h3>
+                <div class="legend-text">
+                    <p>«Памятник Петру в Лодейном Поле - это памятник не одному человеку, а целой эпохе, когда Россия становилась великой морской державой» - так пишут в краеведческих очерках.</p>
+                    <p>Школьники сочиняют стихи о царе-корабеле, а художники считают монумент лучшим украшением города. Он объединяет прошлое и настоящее.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+<footer>
+    <div class="container">
+        <p>© Кванториум 2026</p>
+    </div>
+</footer>
+
+<script>
+    (function() {
+        const animated = document.querySelectorAll('.center-card, .side-card, .hero');
+        animated.forEach((el, idx) => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+            setTimeout(() => {
+                el.style.opacity = '1';
+                el.style.transform = 'translateY(0)';
+            }, idx * 70);
+        });
+        const factItems = document.querySelectorAll('.facts-list-side li');
+        factItems.forEach(li => {
+            li.addEventListener('click', () => {
+                li.style.backgroundColor = '#e0f0f8';
+                setTimeout(() => { li.style.backgroundColor = ''; }, 300);
+            });
+        });
+        console.log('Сайт о памятнике Петру I в Лодейном Поле загружен');
+    })();
+</script>
+</body>
+</html>

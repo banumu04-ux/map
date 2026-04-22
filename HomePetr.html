@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Домик Петра I</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, 'Segoe UI', 'Roboto', 'Inter', sans-serif;
+            background: #f3f1ea;
+            color: #2c2b28;
+            line-height: 1.45;
+        }
+
+        .header {
+            background: linear-gradient(115deg, #2c5a4a, #1a3b30);
+            color: white;
+            padding: 2rem 1.5rem;
+            text-align: center;
+            border-bottom: 4px solid #e0b354;
+        }
+
+        .header h1 {
+            font-size: 2rem;
+            letter-spacing: -0.3px;
+            margin-bottom: 0.65rem;
+            font-weight: 700;
+        }
+
+        .location {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255,255,255,0.18);
+            backdrop-filter: blur(4px);
+            padding: 0.45rem 1.2rem;
+            border-radius: 60px;
+            font-size: 1rem;
+            font-weight: 500;
+        }
+
+        .pin-emoji {
+            font-size: 1.3rem;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 1.8rem auto;
+            padding: 0 1.2rem;
+        }
+
+        .card {
+            background: white;
+            border-radius: 28px;
+            margin-bottom: 1.8rem;
+            overflow: hidden;
+            box-shadow: 0 6px 14px rgba(0,0,0,0.05);
+            transition: 0.2s;
+        }
+
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.2rem;
+            align-items: center;
+        }
+
+        .text {
+            flex: 1.2;
+            padding: 1.5rem 1.5rem 1.5rem 1.8rem;
+        }
+
+        .image {
+            flex: 0.9;
+            padding: 1.5rem 1.8rem 1.5rem 0;
+        }
+
+        .image img {
+            width: 100%;
+            border-radius: 24px;
+            display: block;
+            box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+            background: #e2e8f0;
+        }
+
+        .row-reverse {
+            flex-direction: row-reverse;
+        }
+
+        .row-reverse .image {
+            padding: 1.5rem 0 1.5rem 1.8rem;
+        }
+        .row-reverse .text {
+            padding: 1.5rem 1.8rem 1.5rem 1.5rem;
+        }
+
+        .title {
+            font-size: 1.55rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+            color: #2c5a4a;
+            border-left: 4px solid #e0b354;
+            padding-left: 12px;
+        }
+
+        p {
+            margin-bottom: 0.8rem;
+            font-size: 0.95rem;
+            color: #3a3a36;
+            line-height: 1.5;
+        }
+
+        .list {
+            margin: 0.8rem 0 0.4rem;
+            list-style: none;
+        }
+        .list li {
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.92rem;
+        }
+        .list li i {
+            width: 1.4rem;
+            color: #e0b354;
+        }
+
+        .hint {
+            background: #eef3fc;
+            border-radius: 18px;
+            padding: 0.35rem 0.8rem;
+            font-size: 0.7rem;
+            text-align: center;
+            margin-top: 10px;
+            color: #2c6b8f;
+            display: inline-block;
+            width: 100%;
+        }
+
+        .mini-gallery {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin: 1rem 0 0.5rem;
+        }
+        .gallery-img {
+            flex: 1 1 150px;
+            border-radius: 20px;
+            overflow: hidden;
+            background: #f8fafc;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+        .gallery-img img {
+            width: 100%;
+            height: 110px;
+            object-fit: cover;
+            display: block;
+        }
+        .gallery-img span {
+            display: block;
+            font-size: 0.7rem;
+            padding: 6px;
+            text-align: center;
+            background: white;
+        }
+
+        .fact-badge {
+            background: #f0ede8;
+            border-radius: 20px;
+            padding: 0.6rem 1rem;
+            margin: 0.8rem 0;
+            font-size: 0.85rem;
+            border-left: 3px solid #e0b354;
+        }
+
+        footer {
+            text-align: center;
+            padding: 1.2rem;
+            background: #1a2f28;
+            color: #cbdbe6;
+            font-size: 0.8rem;
+            margin-top: 2rem;
+            letter-spacing: 0.3px;
+        }
+
+        @media (max-width: 750px) {
+            .row, .row-reverse {
+                flex-direction: column;
+            }
+            .text, .image, .row-reverse .text, .row-reverse .image {
+                padding: 1.2rem !important;
+            }
+            .header h1 {
+                font-size: 1.5rem;
+            }
+            .title {
+                font-size: 1.35rem;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+
+<div class="header">
+    <h1>Домик Петра I</h1>
+    <div class="location">
+        <span class="pin-emoji">📍</span>
+        <span>г. Лодейное Поле, сквер Корабелов, набережная реки Свирь</span>
+    </div>
+    <div style="margin-top: 12px; font-size: 0.8rem; opacity: 0.85;">
+        <i class="fas fa-ship"></i> Колыбель Балтийского флота · Музей Петровской эпохи
+    </div>
+</div>
+
+<div class="container">
+
+    <div class="card">
+        <div class="row">
+            <div class="text">
+                <div class="title">Символ рождения флота</div>
+                <p><strong>Домик Петра I</strong> - воссозданный исторический памятник в сквере Корабелов на берегу реки Свирь. Именно здесь, на Олонецкой верфи, в 1702 году Пётр Великий основал первую судостроительную верфь для строительства кораблей Балтийского флота. Царь нередко бывал в Лодейном Поле, инспектируя постройку кораблей, и останавливался в небольшом деревянном доме, который к нашему времени не сохранился.</p>
+                <p>В 2020 году домик был воссоздан по историческим аналогам и сегодня является музеем и одним из главных туристических объектов города.</p>
+            </div>
+            <div class="image">
+                <img src="https://avatars.mds.yandex.net/get-altay/9822373/2a0000019279758fa5d810506a7ef2789415/orig" alt="Домик Петра I общий вид">
+            </div>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="row row-reverse">
+            <div class="text">
+                <div class="title">История домика и его возрождение</div>
+                <p>Первоначальный домик Петра был построен в 1702 году, но его чертежи не сохранились. Воссоздание велось по ближайшему историческому аналогу - домику Петра I в Коломенском (Москва), который был построен в том же 1702 году на берегу Северной Двины.</p>
+                <p>Строительство воссозданного домика велось в рамках проекта «Лодейное Поле - родина Балтийского флота» при поддержке губернатора Ленинградской области Александра Дрозденко. Открытие состоялось в сентябре 2020 года, к празднованию Дня города.</p>
+                <div class="fact-badge">
+                    <i class="fas fa-trowel" style="margin-right: 8px; color:#e0b354;"></i>
+                    <strong>Интересный факт:</strong> За основу взят домик, который позднее был перевезён в Архангельск, а в 1934 году - в Москву, где стал музейным экспонатом в Коломенском.
+                </div>
+            </div>
+            <div class="image">
+                <img src="https://ic.pics.livejournal.com/marinochka78/82801035/1415713/1415713_1000.jpg" alt="Строительство домика">
+            </div>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="row">
+            <div class="text">
+                <div class="title">Что внутри: музей Петровской эпохи</div>
+                <p>Сегодня Домик Петра I - это действующий музей. В его экспозиции представлены предметы из <strong>Центрального военно-морского музея имени императора Петра Великого</strong> в Санкт-Петербурге. Посетители могут увидеть предметы быта, мебель, документы и личные вещи, связанные с эпохой Петра I.</p>
+                <p>В музее также представлены <strong>макеты Олонецкой судостроительной верфи и кораблей Петровской эпохи</strong>, что позволяет лучше понять масштабы судостроения того времени. Экспозиция «Лодейнополье самобытное» знакомит с культурой и традициями региона.</p>
+
+            </div>
+            <div class="image">
+                <img src="data:image/jpeg;base64,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" alt="Интерьер домика">
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer>
+    © Кванториум 2026
+</footer>
+</body>
+</html>

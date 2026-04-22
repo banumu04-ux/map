@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <title>Памятник «Приказ»</title>
+    <meta name="description" content="История и значение памятника «Приказ» в Лодейном Поле — символ петровской эпохи и зарождения Балтийского флота.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #fefcf5;
+            color: #2c2b28;
+            line-height: 1.5;
+            scroll-behavior: smooth;
+        }
+
+        h1, h2, h3, .logo-text, .hero-subtitle {
+            font-family: 'Playfair Display', serif;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .site-header {
+            background: #1e2f2c;
+            color: #f0ede5;
+            padding: 18px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .logo h1 {
+            font-size: 1.7rem;
+            font-weight: 600;
+            letter-spacing: -0.3px;
+        }
+
+        .logo p {
+            font-size: 0.8rem;
+            opacity: 0.75;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .nav-links a {
+            color: #e2ddd2;
+            text-decoration: none;
+            margin-left: 28px;
+            font-weight: 500;
+            font-size: 1rem;
+            transition: color 0.2s;
+            border-bottom: 1px solid transparent;
+        }
+
+        .nav-links a:hover {
+            color: #dbbc7e;
+            border-bottom-color: #dbbc7e;
+        }
+
+        .hero {
+            background: linear-gradient(105deg, #2c4a44 0%, #18332e 100%);
+            color: white;
+            padding: 70px 0 80px;
+            text-align: center;
+            position: relative;
+        }
+
+        .hero::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 6px;
+            background: #dbbc7e;
+        }
+
+        .hero h2 {
+            font-size: 3.2rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            letter-spacing: -0.01em;
+        }
+
+        .hero-subtitle {
+            font-size: 1.35rem;
+            max-width: 720px;
+            margin: 0 auto;
+            opacity: 0.9;
+            font-style: italic;
+        }
+
+        .hero-meta {
+            margin-top: 32px;
+            font-size: 0.95rem;
+            font-weight: 300;
+            display: inline-flex;
+            gap: 24px;
+            background: rgba(0,0,0,0.3);
+            backdrop-filter: blur(4px);
+            padding: 10px 24px;
+            border-radius: 60px;
+        }
+
+        .section {
+            padding: 64px 0;
+            border-bottom: 1px solid #e6e1d6;
+        }
+
+        .section:last-child {
+            border-bottom: none;
+        }
+
+        .section-title {
+            font-size: 2.1rem;
+            font-weight: 600;
+            margin-bottom: 40px;
+            position: relative;
+            display: inline-block;
+        }
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: -12px;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: #dbbc7e;
+        }
+
+        .two-columns {
+            display: flex;
+            gap: 48px;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+        .col {
+            flex: 1;
+            min-width: 260px;
+        }
+
+        .info-card {
+            background: white;
+            border-radius: 24px;
+            box-shadow: 0 12px 28px rgba(0,0,0,0.05);
+            padding: 28px;
+            transition: transform 0.2s;
+            height: 100%;
+            border: 1px solid #f0ebdf;
+        }
+        .info-card:hover {
+            transform: translateY(-5px);
+        }
+        .info-card h3 {
+            font-size: 1.7rem;
+            margin-bottom: 16px;
+            color: #2c4a44;
+        }
+        .info-card p, .info-card li {
+            color: #3e3c38;
+        }
+
+        .facts-list {
+            list-style: none;
+            padding: 0;
+        }
+        .facts-list li {
+            margin-bottom: 14px;
+            padding-left: 28px;
+            position: relative;
+        }
+        .facts-list li::before {
+            content: "⚓";
+            position: absolute;
+            left: 0;
+            color: #b68b40;
+            font-size: 1rem;
+        }
+
+        .quote-block {
+            background: #f2efe7;
+            border-left: 6px solid #dbbc7e;
+            padding: 24px 32px;
+            font-style: italic;
+            font-size: 1.2rem;
+            margin: 32px 0;
+            border-radius: 16px;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 28px;
+            margin-top: 20px;
+        }
+        .gallery-item {
+            background: #f8f5ed;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 6px 14px rgba(0,0,0,0.05);
+            transition: all 0.2s;
+            text-align: center;
+            padding-bottom: 12px;
+        }
+        .gallery-img {
+            background: #cfcfc4;
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-size: cover;
+            background-position: center;
+            color: #4f4a3e;
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+
+        .img-prikaz { background: linear-gradient(125deg, #9e8e6f, #5f5542); position: relative; }
+        .img-prikaz::after { content: "🏛️"; font-size: 48px; opacity: 0.6; position: absolute; }
+        .img-lodeynoye { background: linear-gradient(145deg, #6f8f7a, #3f5a4c); }
+        .img-lodeynoye::after { content: "🌊⚓"; font-size: 48px; opacity: 0.6; position: absolute; }
+        .img-detail { background: linear-gradient(115deg, #bcab84, #8b7b5c); }
+        .img-detail::after { content: "📜"; font-size: 52px; opacity: 0.6; position: absolute; }
+        .gallery-item p {
+            margin: 12px 12px 8px;
+            font-weight: 500;
+        }
+        .caption {
+            font-size: 0.85rem;
+            color: #68635a;
+        }
+
+        .map-placeholder {
+            background: #dfd9cb;
+            border-radius: 28px;
+            padding: 28px;
+            text-align: center;
+            margin-top: 20px;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid #ccc4b0;
+        }
+        .map-svg {
+            max-width: 100%;
+            background: #e9e2d2;
+            border-radius: 20px;
+            padding: 12px;
+        }
+        address {
+            font-style: normal;
+            font-weight: 500;
+            margin-top: 20px;
+            background: #fff4e4;
+            display: inline-block;
+            padding: 8px 20px;
+            border-radius: 40px;
+        }
+
+        .footer {
+            background: #1e2f2c;
+            color: #cbc9be;
+            padding: 40px 0 24px;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        .btn-back {
+            display: inline-block;
+            background: #dbbc7e;
+            color: #1e2f2c;
+            padding: 12px 28px;
+            border-radius: 40px;
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 28px;
+            transition: background 0.2s;
+        }
+        .btn-back:hover {
+            background: #c6a867;
+        }
+
+        @media (max-width: 760px) {
+            .hero h2 { font-size: 2.2rem; }
+            .section-title { font-size: 1.8rem; }
+            .header-inner { flex-direction: column; align-items: center; text-align: center; }
+            .nav-links a { margin: 0 12px; display: inline-block; }
+            .two-columns { gap: 32px; }
+        }
+    </style>
+</head>
+<body>
+<main>
+    <section class="hero">
+        <div class="container">
+            <h2>Памятник «Приказ»</h2>
+            <div class="hero-meta">
+                <span>📍 Лодейное Поле, мемориальный парк «Свирская Победа»</span>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="section">
+        <div class="container">
+            <h2 class="section-title">Символ рождения флота</h2>
+            <div class="two-columns">
+                <div class="col">
+                    <div class="info-card">
+                        <h3>«Приказ»</h3>
+                        <p>Памятник «Приказ» - уникальный исторический монумент, установленный в честь указа Петра I о строительстве Олонецкой верфи. Именно здесь, на реке Свирь, зарождался Балтийский флот. Каменная стела с текстом именного указа напоминает о мужестве корабелов и военной решимости России.</p>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="info-card">
+                        <h3>Архитектура</h3>
+                        <p>Стела выполнена из серого гранита, в основании - стилизованный свиток. На лицевой стороне высечены строки исторического документа: <em>«…быть на Свири верфи и городу Лодейное Поле…»</em>. Рядом расположены якоря и бронзовый венок. Место выбрано неслучайно - именно тут, по преданию, Пётр I лично наблюдал за спуском первых кораблей.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="gallery" class="section">
+        <div class="container">
+            <h2 class="section-title">Фото</h2>
+            <div class="gallery">
+                <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0d/46/e7/42/caption.jpg?w=1200&h=-1&s=1">
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer class="footer">
+    <div class="container">
+        <p>© Кванториум 2026</p>
+    </div>
+</footer>
+
+</body>
+</html>

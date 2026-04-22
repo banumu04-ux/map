@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Лодейнопольский район — родина Балтийского флота</title>
+    <meta name="description" content="Лодейнопольский район: история Петра I, Свирская победа, Александро-Свирский монастырь, оятская керамика и Нижне-Свирский заповедник. Полный гид для путешественников.">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', 'Roboto', system-ui, -apple-system, sans-serif;
+            background-color: #f5f2eb;
+            color: #2c2418;
+            line-height: 1.5;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* ===== ШАПКА (без навигации) ===== */
+        .header {
+            background: rgba(255, 255, 245, 0.96);
+            backdrop-filter: blur(12px);
+            border-bottom: 2px solid #c9b896;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-inner {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 16px 0;
+        }
+
+        .logo a {
+            font-size: 1.8rem;
+            font-weight: 800;
+            text-decoration: none;
+            background: linear-gradient(135deg, #1e5a6d, #b87c2e);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            letter-spacing: -0.01em;
+        }
+
+        /* ===== ГЕРОЙ С ФОНОМ ===== */
+        .hero {
+            background: linear-gradient(135deg, #1a4d5e 0%, #2c6e5c 100%), url('https://placehold.co/1600x500/2c6e5c/ffffff?text=Река+Свирь');
+            background-blend-mode: overlay;
+            background-size: cover;
+            border-radius: 32px;
+            margin: 32px 0 40px;
+            padding: 60px 48px;
+            color: white;
+        }
+
+        .hero-tag {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: #ffd966;
+            font-weight: 600;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin: 20px 0 16px;
+            font-weight: 800;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 650px;
+            opacity: 0.95;
+        }
+
+        .hero-badge {
+            margin-top: 28px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .badge {
+            background: rgba(255,255,240,0.2);
+            backdrop-filter: blur(4px);
+            padding: 8px 18px;
+            border-radius: 40px;
+            font-size: 0.9rem;
+        }
+
+        /* ===== ОБЩИЕ СТИЛИ ===== */
+        .section-title {
+            font-size: 2rem;
+            font-weight: 700;
+            margin: 56px 0 28px 0;
+            border-left: 6px solid #b87c2e;
+            padding-left: 20px;
+        }
+
+        .section-sub {
+            color: #6b5a44;
+            margin-top: -20px;
+            margin-bottom: 32px;
+            padding-left: 26px;
+        }
+
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 32px;
+            margin-bottom: 48px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 16px 32px rgba(0,0,0,0.12);
+        }
+
+        .card-img {
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: flex-end;
+            padding: 12px;
+        }
+
+        .card-category {
+            background: rgba(0,0,0,0.7);
+            backdrop-filter: blur(4px);
+            color: #ffd966;
+            padding: 4px 14px;
+            border-radius: 30px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .card-content {
+            padding: 24px;
+        }
+
+        .card-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: #1e4a5d;
+        }
+
+        .card-desc {
+            color: #4a3e2e;
+            margin-bottom: 16px;
+        }
+
+        .card-meta {
+            font-size: 0.85rem;
+            color: #8b774e;
+            border-top: 1px solid #efe2cf;
+            padding-top: 14px;
+            margin-top: 8px;
+        }
+
+        /* ===== ДВОЙНАЯ КАРТОЧКА ДЛЯ МОНАСТЫРЕЙ ===== */
+        .double-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 32px;
+            margin-bottom: 48px;
+        }
+
+        @media (max-width: 700px) {
+            .double-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* ===== ИНФО-БЛОК ===== */
+        .info-block {
+            background: #e8dfd1;
+            border-radius: 28px;
+            padding: 36px;
+            margin: 48px 0;
+        }
+
+        .info-block h3 {
+            font-size: 1.6rem;
+            margin-bottom: 20px;
+            color: #2c5a4a;
+        }
+
+        .info-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 24px;
+            list-style: none;
+        }
+
+        .info-list li {
+            flex: 1;
+            min-width: 200px;
+            padding-left: 28px;
+            position: relative;
+        }
+
+        .info-list li::before {
+            content: "📍";
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+
+        /* ===== ТАБЛИЦА ===== */
+        .table-wrapper {
+            background: white;
+            border-radius: 24px;
+            overflow: hidden;
+            margin: 32px 0;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+
+        .info-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .info-table th, .info-table td {
+            padding: 16px 20px;
+            text-align: left;
+            border-bottom: 1px solid #e8dfd1;
+        }
+
+        .info-table th {
+            background: #2c5a4a;
+            color: white;
+            font-weight: 600;
+        }
+
+        .info-table tr:hover {
+            background: #faf6ef;
+        }
+
+        /* ===== ПОДВАЛ ===== */
+        .footer {
+            background: #1e2f28;
+            color: #cfc5b0;
+            margin-top: 64px;
+            padding: 48px 0 24px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h4 {
+            color: #e2c28b;
+            margin-bottom: 18px;
+        }
+
+        .footer-col a {
+            color: #b8aa8c;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .footer-col a:hover {
+            color: #ffd966;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 28px;
+            border-top: 1px solid #3e5a4a;
+            font-size: 0.8rem;
+        }
+
+        button {
+            background: #b87c2e;
+            color: white;
+            border: none;
+            padding: 10px 24px;
+            border-radius: 40px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        button:hover {
+            background: #8b5e24;
+        }
+
+        @media (max-width: 750px) {
+            .hero {
+                padding: 40px 24px;
+            }
+            .hero h1 {
+                font-size: 2rem;
+            }
+            .section-title {
+                font-size: 1.6rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header class="header">
+    <div class="container header-inner">
+        <div class="logo">
+            <a href="#">⚓ Лодейное Поле | Родина флота</a>
+        </div>
+    </div>
+</header>
+
+<main class="container">
+    <!-- ГЕРОЙ -->
+    <div class="hero">
+        <div class="hero-tag">⚓ 1702 — здесь родился Балтийский флот</div>
+        <h1>Лодейнопольский район<br>край ладей, святынь и Свирской победы</h1>
+        <p>240 км от Петербурга — и вы в месте, где Петр I строил первый флот, где не сомкнулось второе блокадное кольцо, где работают древние гончарные традиции.</p>
+        <div class="hero-badge">
+            <span class="badge">🏛️ 3 монастыря</span>
+            <span class="badge">🦢 Нижне-Свирский заповедник</span>
+            <span class="badge">🏺 Оятская керамика</span>
+        </div>
+    </div>
+
+    <!-- ИСТОРИЧЕСКАЯ СПРАВКА -->
+    <div class="info-block">
+        <h3>📜 Исторический очерк</h3>
+        <p style="margin-bottom: 16px; font-size: 1.05rem;">Лодейное Поле получило имя от «лодей» — так на Руси называли парусно-гребные суда. <strong>В 1702 году Пётр I основал здесь Олонецкую верфь</strong>, а уже в 1703 году со стапелей сошёл фрегат «Штандарт» — первый корабль Балтийского военного флота.</p>
+        <p style="margin-bottom: 16px; font-size: 1.05rem;">С 1785 года — уездный город. В годы Великой Отечественной войны по реке Свирь проходил фронт — именно здесь в 1944 году была проведена Свирско-Петрозаводская операция, не позволившая сомкнуться второму блокадному кольцу Ленинграда. Сегодня Лодейнопольский район — живая история под открытым небом.</p>
+        <div style="margin-top: 20px;">
+            <button id="historyBtn">📖 Узнать больше об истории</button>
+        </div>
+    </div>
+
+    <!-- ГЛАВНЫЕ ДОСТОПРИМЕЧАТЕЛЬНОСТИ -->
+    <h2 class="section-title">🏛️ Главные достопримечательности</h2>
+    <div class="cards-grid">
+        <div class="card">
+            <div class="card-img" style="background-image: linear-gradient(0deg, rgba(0,0,0,0.4), rgba(0,0,0,0.2)), url('https://placehold.co/600x400/4a7c6f/ffffff?text=Сквер+Корабелов');">
+                <span class="card-category">⚓ Петровская эпоха</span>
+            </div>
+            <div class="card-content">
+                <div class="card-title">Сквер Корабелов и Домик Петра I</div>
+                <div class="card-desc">Благоустроенное пространство на месте Олонецкой верфи. Обелиск Петру I (1832 г.), музейный павильон «Домик Петра» и смотровая площадка на реку Свирь. В 2024 году сквер посетили более 138 000 туристов.</div>
+                <div class="card-meta">📍 центр Лодейного Поля, набережная Свири</div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-img" style="background-image: linear-gradient(0deg, rgba(0,0,0,0.4), rgba(0,0,0,0.2)), url('https://placehold.co/600x400/5d8b6f/ffffff?text=Парк+Свирская+победа');">
+                <span class="card-category">🎖️ Военная история</span>
+            </div>
+            <div class="card-content">
+                <div class="card-title">Мемориальный парк «Свирская победа»</div>
+                <div class="card-desc">Заложен по приказу маршала Мерецкова в 1944 году. Сохранились блиндажи, окопы, капониры — настоящий укрепрайон под открытым небом. На территории находится краеведческий музей.</div>
+                <div class="card-meta">📍 пр. Ленина, 122 (Лодейное Поле)</div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-img" style="background-image: linear-gradient(0deg, rgba(0,0,0,0.4), rgba(0,0,0,0.2)), url('https://placehold.co/600x400/b87c2e/ffffff?text=Краеведческий+музей');">
+                <span class="card-category">🏺 17 000+ экспонатов</span>
+            </div>
+            <div class="card-content">
+                <div class="card-title">Лодейнопольский историко-краеведческий музей</div>
+                <div class="card-desc">Фонд насчитывает более 17 тыс. предметов: самолёт Героя СССР Леонида Гальченко, картины Василия Поленова, уникальная коллекция оятской керамики и старинные монеты.</div>
+                <div class="card-meta">📍 пр. Ленина, 122 | 🕒 10:00–18:00 (кроме пн)</div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-img" style="background-image: linear-gradient(0deg, rgba(0,0,0,0.4), rgba(0,0,0,0.2)), url('https://placehold.co/600x400/8b6b42/ffffff?text=Храм+Николая+Чудотворца');">
+                <span class="card-category">⛵ Необычный храм</span>
+            </div>
+            <div class="card-content">
+                <div class="card-title">Храм Николая Чудотворца с «парусами»</div>
+                <div class="card-desc">Арт-объект и храм в одном — здание напоминает каравеллу с золотыми парусами. Популярное место для фотографий и необычный памятник корабельной истории края.</div>
+                <div class="card-meta">📍 г. Лодейное Поле</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- МОНАСТЫРИ (специальный блок) -->
+    <h2 class="section-title">🙏 Святые обители Лодейнополья</h2>
+    <p class="section-sub">Три монастыря — духовное сердце Присвирья, куда едут паломники со всей России</p>
+    <div class="double-grid">
+        <div class="card">
+            <div class="card-img" style="background-image: linear-gradient(0deg, rgba(0,0,0,0.5), rgba(0,0,0,0.3)), url('https://placehold.co/600x400/2e6b47/ffffff?text=Александро-Свирский+монастырь');">
+                <span class="card-category">🏰 XV век</span>
+            </div>
+            <div class="card-content">
+                <div class="card-title">Свято-Троицкий Александро-Свирский мужской монастырь</div>
+                <div class="card-desc">Основан преподобным Александром Свирским в конце XV века. Состоит из двух комплексов — Троицкого и Преображенского. В советское время здесь были детдом и психбольница, с 1998 года восстановлен.</div>
+                <div class="card-meta">📍 село Старая Слобода (30 мин от Лодейного Поля)</div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-img" style="background-image: linear-gradient(0deg, rgba(0,0,0,0.4), rgba(0,0,0,0.2)), url('https://placehold.co/600x400/5f8b6c/ffffff?text=Введено-Оятский+монастырь');">
+                <span class="card-category">💧 Целебный источник</span>
+            </div>
+            <div class="card-content">
+                <div class="card-title">Введено-Оятский женский монастырь</div>
+                <div class="card-desc">Расположен на берегу реки Оять. Известен своим тёплым целебным минеральным источником. Рядом — деревня Имоченицы, где работал художник Василий Поленов, создавший здесь около 40 картин.</div>
+                <div class="card-meta">📍 близ станции Оять, деревня Рассвет</div>
+            </div>
+        </div>
+    </div>
+    <div class="cards-grid" style="margin-top: -16px;">
+        <div class="card">
+            <div class="card-img" style="background-image: linear-gradient(0deg, rgba(0,0,0,0.4), rgba(0,0,0,0.2)), url('https://placehold.co/600x400/c9a87b/ffffff?text=Покрово-Тервенический+монастырь');">
+                <span class="card-category">🌸 Современная обитель</span>
+            </div>
+            <div class="card-content">
+                <div class="card-title">Покрово-Тервенический женский монастырь</div>
+                <div class="card-desc">Основан в 1991 году вокруг руин старого храма. Сегодня это полностью восстановленный архитектурный ансамбль. В деревне Тервеничи также работает народный музей вепсского быта.</div>
+                <div class="card-meta">📍 село Тервеничи (предварительная запись в музей)</div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-img" style="background-image: linear-gradient(0deg, rgba(0,0,0,0.4), rgba(0,0,0,0.2)), url('https://placehold.co/600x400/a2834c/ffffff?text=Церковь+Михаила+Архангела');">
+                <span class="card-category">⛪ XVIII век</span>
+            </div>
+            <div class="card-content">
+                <div class="card-title">Церковь Михаила Архангела (Алёховщина)</div>
+                <div class="card-desc">Построена в 1730-е годы, возобновлены службы в конце 1980-х. Рядом — музей оятской керамики, где можно увидеть традиционные вепсские гончарные изделия.</div>
+                <div class="card-meta">📍 село Алёховщина</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- НАРОДНЫЕ ПРОМЫСЛЫ И КУЛЬТУРА -->
+    <h2 class="section-title">🏺 Оятская керамика и ремёсла</h2>
+    <div class="cards-grid">
+        <div class="card">
+            <div class="card-content">
+                <div class="card-title">🏺 Гончарное искусство вепсов</div>
+                <div class="card-desc">В селе Алёховщина мастера создают керамику из местных глин вручную, на гончарном круге — так же, как 200 лет назад. Миски, кувшины, сервизы, жаровни — изделия можно приобрести в музее и в Центре ремёсел Лодейного Поля.</div>
+                <div class="card-meta">📍 Музей керамики в Алёховщине</div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-content">
+                <div class="card-title">🧵 Центр ремёсел Лодейного Поля</div>
+                <div class="card-desc">Выставки вепсского костюма, традиционной вышивки, мастер-классы по народным промыслам. Можно создать сувенир своими руками.</div>
+                <div class="card-meta">📍 г. Лодейное Поле</div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-content">
+                <div class="card-title">🎭 Театральная жизнь</div>
+                <div class="card-desc">В городе работают Лодейнопольский драматический театр-студия «Апрель» (основан в 1986) и Народный театр комедии (с 1961 года).</div>
+                <div class="card-meta">📍 пр. Ленина, 28 / ул. Урицкого, 1</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ПРИРОДА И ЗАПОВЕДНИК -->
+    <div class="info-block" style="background: #dde2d4;">
+        <h3>🦢 Нижне-Свирский природный заповедник</h3>
+        <p>Уникальная природная территория на берегу Ладожского озера. Более 250 видов птиц, включая редких орланов-белохвостов и скопу. Весной и осенью — грандиозные стоянки перелётных птиц на «Водно-болотных угодьях». Лучшее место для бердвотчинга в Ленинградской области.</p>
+        <div style="margin-top: 16px;"><span class="badge" style="background:#b87c2e; color:white;">🌿 Экотропы и орнитологические туры</span></div>
+    </div>
+
+    <!-- МАРШРУТ-ПОБЕДИТЕЛЬ -->
+    <h2 class="section-title">🏆 Лучший турмаршрут 2025 года</h2>
+    <div class="card" style="background: linear-gradient(105deg, #fff8ed, #fff);">
+        <div class="card-content">
+            <div class="card-title">«Дорогами Свирских боев» — победитель областного конкурса</div>
+            <div class="card-desc">Авторский маршрут Дмитрия Рыполова (поисковый отряд «Переправа») признан лучшим в номинации «Активный туризм» Ленинградской области в 2025 году. Включает выставку «Фронтовая Свирь», походы по местам боёв и посещение памятных мест Свирьстройского поселения. Участники — школьники и гости района.</div>
+            <div class="card-meta">📅 Экскурсии по предварительной записи через администрацию района</div>
+        </div>
+    </div>
+
+    <!-- ТАБЛИЦА: РЕЖИМ РАБОТЫ И ЦЕНЫ -->
+    <h2 class="section-title">📋 Практическая информация</h2>
+    <div class="table-wrapper">
+        <table class="info-table">
+            <thead>
+                <tr><th>Достопримечательность</th><th>Режим работы</th><th>Стоимость / контакты</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>Краеведческий музей (Лодейное Поле)</td><td>вт–вс 10:00–18:00, касса до 17:30<br>последняя пятница — сан.день</td><td>взрослый — уточнять по телефону<br>VK: lod_muzei</td></tr>
+                <tr><td>Домик Петра I / Сквер Корабелов</td><td>круглосуточно (павильон: вт–вс 10:00–17:00)</td><td>вход свободный, экскурсии по записи</td></tr>
+                <tr><td>Александро-Свирский монастырь</td><td>ежедневно с 9:00 до 19:00</td><td>вход свободный, пожертвования</td></tr>
+                <tr><td>Парк «Свирская победа»</td><td>круглосуточно</td><td>бесплатно</td></tr>
+                <tr><td>Музей оятской керамики (Алёховщина)</td><td>по предварительной договорённости</td><td>уточнять в Центре ремёсел</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- КАК ДОБРАТЬСЯ -->
+    <div class="info-block">
+        <h3>🚗 Как добраться до Лодейнопольского района</h3>
+        <ul class="info-list">
+            <li><strong>🚂 Поезд / электричка</strong><br>С Ладожского вокзала (СПб) до ст. Лодейное Поле — около 3–4 часов.</li>
+            <li><strong>🚌 Автобус</strong><br>Регулярные рейсы от автовокзала на Обводном канале.</li>
+            <li><strong>🚗 Автомобиль</strong><br>По трассе Р-21 «Кола» (Мурманское шоссе), ~240 км от СПб.</li>
+        </ul>
+        <p style="margin-top: 24px;">⭐ Рекомендуют путешествовать на машине — так можно увидеть удалённые монастыри, деревню Тервеничи и берег Ладоги.</p>
+    </div>
+</main>
+
+<!-- ПОДВАЛ -->
+<footer class="footer">
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h4>⚓ Лодейнопольский район</h4>
+                <a href="#">Официальный туристический портал</a>
+                <a href="#">Администрация района</a>
+                <a href="#">Карта достопримечательностей</a>
+            </div>
+            <div class="footer-col">
+                <h4>Туристам</h4>
+                <a href="#">Где остановиться (отели и базы)</a>
+                <a href="#">Кафе и рестораны</a>
+                <a href="#">Сувениры — оятская керамика</a>
+            </div>
+            <div class="footer-col">
+                <h4>Контакты</h4>
+                <a href="#">+7 (81364) 2-14-45</a>
+                <a href="#">turizm@lodpole.ru</a>
+                <a href="#">г. Лодейное Поле, пр. Ленина, 33</a>
+            </div>
+        </div>
+        <div class="copyright">
+            © 2026 Лодейнопольский район — родина Балтийского флота. Историко-культурный гид.
+        </div>
+    </div>
+</footer>
+
+<script>
+    // история
+    document.getElementById('historyBtn').addEventListener('click', function() {
+        alert('В 1702 году Петр I заложил на реке Свирь Олонецкую верфь. В 1703-м спущен фрегат «Штандарт» — первый корабль Балтийского флота. Всего построено более 450 судов. В 1944-м — Свирская победа, остановившая врага. Сейчас район — один из туристических центров Ленобласти.');
+    });
+</script>
+</body>
+</html>

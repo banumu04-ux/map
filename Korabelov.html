@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Сквер Корабелов</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, 'Segoe UI', 'Roboto', 'Inter', sans-serif;
+            background: #f0f4f8;
+            color: #1a2c3e;
+            line-height: 1.45;
+        }
+
+        .header {
+            background: linear-gradient(115deg, #1a4d6b, #0e3a52);
+            color: white;
+            padding: 2rem 1.5rem;
+            text-align: center;
+            border-bottom: 4px solid #ffb347;
+        }
+
+        .header h1 {
+            font-size: 2.2rem;
+            letter-spacing: -0.3px;
+            margin-bottom: 0.65rem;
+            font-weight: 700;
+        }
+
+        .location {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255,255,255,0.18);
+            backdrop-filter: blur(4px);
+            padding: 0.45rem 1.2rem;
+            border-radius: 60px;
+            font-size: 1rem;
+            font-weight: 500;
+        }
+
+        .pin-emoji {
+            font-size: 1.3rem;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 1.8rem auto;
+            padding: 0 1.2rem;
+        }
+
+        .card {
+            background: white;
+            border-radius: 28px;
+            margin-bottom: 1.8rem;
+            overflow: hidden;
+            box-shadow: 0 6px 14px rgba(0,0,0,0.05);
+            transition: 0.2s;
+        }
+
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.2rem;
+            align-items: center;
+        }
+
+        .text {
+            flex: 1.2;
+            padding: 1.5rem 1.5rem 1.5rem 1.8rem;
+        }
+
+        .image {
+            flex: 0.9;
+            padding: 1.5rem 1.8rem 1.5rem 0;
+        }
+
+        .image img {
+            width: 100%;
+            border-radius: 24px;
+            display: block;
+            box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+            background: #e2e8f0;
+        }
+
+        .row-reverse {
+            flex-direction: row-reverse;
+        }
+
+        .row-reverse .image {
+            padding: 1.5rem 0 1.5rem 1.8rem;
+        }
+        .row-reverse .text {
+            padding: 1.5rem 1.8rem 1.5rem 1.5rem;
+        }
+
+        .title {
+            font-size: 1.55rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+            color: #0e4b6e;
+            border-left: 4px solid #ffb347;
+            padding-left: 12px;
+        }
+
+        p {
+            margin-bottom: 0.8rem;
+            font-size: 0.95rem;
+            color: #2c3e44;
+        }
+
+        .list {
+            margin: 0.8rem 0 0.4rem;
+            list-style: none;
+        }
+        .list li {
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.92rem;
+        }
+        .list li i {
+            width: 1.4rem;
+            color: #ffb347;
+        }
+
+        .hint {
+            background: #eef3fc;
+            border-radius: 18px;
+            padding: 0.35rem 0.8rem;
+            font-size: 0.7rem;
+            text-align: center;
+            margin-top: 10px;
+            color: #2c6b8f;
+            display: inline-block;
+            width: 100%;
+        }
+
+        .mini-gallery {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin: 1rem 0 0.5rem;
+        }
+        .gallery-img {
+            flex: 1 1 150px;
+            border-radius: 20px;
+            overflow: hidden;
+            background: #f8fafc;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+        .gallery-img img {
+            width: 100%;
+            height: 110px;
+            object-fit: cover;
+            display: block;
+        }
+        .gallery-img span {
+            display: block;
+            font-size: 0.7rem;
+            padding: 6px;
+            text-align: center;
+            background: white;
+        }
+
+        footer {
+            text-align: center;
+            padding: 1.2rem;
+            background: #102b38;
+            color: #b9d2e3;
+            font-size: 0.8rem;
+            margin-top: 2rem;
+            letter-spacing: 0.3px;
+        }
+
+        @media (max-width: 750px) {
+            .row, .row-reverse {
+                flex-direction: column;
+            }
+            .text, .image, .row-reverse .text, .row-reverse .image {
+                padding: 1.2rem !important;
+            }
+            .header h1 {
+                font-size: 1.7rem;
+            }
+            .title {
+                font-size: 1.35rem;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+
+<div class="header">
+    <h1>Сквер Корабелов</h1>
+    <div class="location">
+        <span class="pin-emoji">📍</span>
+        <span>г. Лодейное Поле, пересечение ул. Ленина и наб. Адмирала Лазарева</span>
+    </div>
+</div>
+
+<div class="container">
+
+    <div class="card">
+        <div class="row">
+            <div class="text">
+                <div class="title">Сквер с морской душой</div>
+                <p><strong>Сквер Корабелов</strong> - знаковое место Лодейного Поля, посвящённое мастерам судостроения и истории Олонецкой верфи. Уютная зелёная зона с современными дорожками, скамейками и арт-объектами в морском стиле.</p>
+            </div>
+            <div class="image">
+                <img src="data:image/jpeg;base64,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" alt="Сквер вид">
+            </div>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="row row-reverse">
+            <div class="text">
+                <div class="title">История и символика</div>
+                <p>Сквер заложен в честь корабелов, работавших на Олонецкой верфи, где при Петре I строились первые корабли Балтийского флота. В центре - <strong>памятный знак</strong> с якорем и гранитными плитами, на которых высечены имена выдающихся судостроителей.</p>
+                <p>Место проведения городских праздников, экскурсий и Дня корабела. Каждый элемент напоминает о морском наследии города.</p>
+            </div>
+            <div class="image">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSf4XejXZz399E-uUjfkAbPHFpf4K2y8_wHVA&s" alt="Памятник">
+            </div>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="row">
+            <div class="text">
+                <div class="title">Пространство для всех</div>
+                <p>После благоустройства сквер стал любимым местом для прогулок, занятий спортом и семейного отдыха. Здесь проводятся концерты, детские квесты, выставки макетов кораблей, а зимой заливают каток.</p>
+                <ul class="list">
+                </ul>
+            </div>
+            <div class="image">
+                <img src="https://avatars.mds.yandex.net/get-altay/16166974/2a0000019777136b4a64f62e6d427f809708/L_height" alt="Отдых в сквере">
+            </div>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="row row-reverse">
+            <div class="text">
+                <div class="title">Рядом с интересными местами</div>
+                <p>Сквер расположен в историческом центре. В нескольких минутах ходьбы - <strong>Краеведческий музей</strong> (экспозиция о судостроении), набережная реки Свирь и храм Петра и Павла.</p>
+            </div>
+            <div class="image">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR8uab3WMRhMYBTMhWXOZthtBLCrH27SjMYnA&s" alt="Окрестности">
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer>
+    © Кванториум 2026
+</footer>
+</body>
+</html>

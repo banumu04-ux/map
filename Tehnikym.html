@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>История Лодейнопольского техникума промышленных технологий</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #fefcf5;
+            color: #2c2b28;
+            line-height: 1.5;
+        }
+
+        h1, h2, h3, .logo, .hero-title {
+            font-family: 'Playfair Display', serif;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        header {
+            background: #fffaf2;
+            border-bottom: 1px solid #e9e2d4;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(2px);
+            background-color: rgba(255, 250, 242, 0.95);
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 18px 0;
+            flex-wrap: wrap;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #8b5a2b;
+        }
+
+        .logo span {
+            font-weight: 400;
+            font-size: 0.85rem;
+            color: #b47c44;
+        }
+
+        .back-link a {
+            text-decoration: none;
+            color: #8b5a2b;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+        .back-link a:hover {
+            color: #b1621a;
+        }
+
+        .hero {
+            background: linear-gradient(115deg, #f3ede3 0%, #fef7ed 100%);
+            padding: 60px 0 50px;
+            text-align: center;
+            border-bottom: 1px solid #e2d8ca;
+        }
+
+        .hero-title {
+            font-size: 2.6rem;
+            font-weight: 700;
+            color: #4a2e1a;
+            margin-bottom: 0.5rem;
+        }
+
+        .hero-sub {
+            font-size: 1.1rem;
+            color: #7a5a3a;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .history-section {
+            padding: 70px 0;
+            background: white;
+        }
+
+        .timeline {
+            display: flex;
+            flex-direction: column;
+            gap: 2.5rem;
+        }
+
+        .history-card {
+            background: #fefaf4;
+            border-radius: 28px;
+            padding: 28px 32px;
+            border-left: 6px solid #c28a4e;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+            transition: 0.2s;
+        }
+
+        .history-card:hover {
+            background: #fffcf8;
+            transform: translateX(4px);
+        }
+
+        .year {
+            font-size: 1.8rem;
+            font-weight: 700;
+            font-family: 'Playfair Display', serif;
+            color: #c28a4e;
+            margin-bottom: 12px;
+        }
+
+        .history-card p {
+            font-size: 1rem;
+            line-height: 1.6;
+            color: #3e3a35;
+            margin-bottom: 8px;
+        }
+
+        .quote {
+            font-style: italic;
+            background: #f3ede3;
+            padding: 18px 24px;
+            border-radius: 20px;
+            margin-top: 16px;
+            color: #5a4a38;
+            border-left: 3px solid #c28a4e;
+        }
+
+        footer {
+            background: #2e2821;
+            color: #ddd2c4;
+            padding: 32px 0;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        @media (max-width: 700px) {
+            .hero-title {
+                font-size: 1.9rem;
+            }
+            .history-card {
+                padding: 20px;
+            }
+            .year {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<main>
+    <section class="hero">
+        <div class="container">
+            <h1 class="hero-title">История техникума <br>промышленных технологий</h1>
+            <div class="hero-sub">📍 Лодейное Поле, ул. Урицкого, 1</div>
+        </div>
+    </section>
+
+    <section class="history-section">
+        <div class="container">
+            <div class="timeline">
+                <div class="history-card">
+                    <div class="year">1944 год</div>
+                    <p><strong>Рождение учебного заведения.</strong> В трудные послевоенные годы в Лодейном Поле было основано ремесленное училище №5. Основная задача - подготовка квалифицированных рабочих для восстановления промышленности и лесозаготовок в Ленинградской области. Первые мастерские размещались в приспособленных зданиях, но уже тогда училище давало путёвку в жизнь сотням юношей и девушек.</p>
+                </div>
+
+                <div class="history-card">
+                    <div class="year">1950 - 1960-е</div>
+                    <p>Училище активно развивалось, открывались новые направления: столярное дело, слесарная обработка металла, ремонт техники. В 1963 году учреждение получило статус <strong>СПТУ-19 (среднее профессионально-техническое училище)</strong> и переехало в современное здание на улице Урицкого, где располагается по сей день.</p>
+                    <div class="quote">
+                        <i class="fas fa-quote-left"></i> В эти годы сложились традиции наставничества и производственного обучения, которые бережно хранятся до сих пор.
+                    </div>
+                </div>
+
+                <div class="history-card">
+                    <div class="year">1980 - 1990-е</div>
+                    <p>Техникум (уже как <strong>ПТУ №19</strong>) готовил кадры для судостроения и автотранспорта. После реформ 1990-х годов учреждение перешло на многоуровневую подготовку, открылись новые специальности: техник-механик, бухгалтер, оператор ЭВМ. В 1994 году учебное заведение получило статус <strong>Лодейнопольского профессионального лицея</strong>.</p>
+                </div>
+
+                <div class="history-card">
+                    <div class="year">2000-е - 2010-е</div>
+                    <p>Активная модернизация: внедрение информационных технологий, создание компьютерных классов, сотрудничество с предприятиями «Свирская судоверфь», «Ленпромтранс». В 2012 году лицей реорганизован в <strong>Лодейнопольский техникум промышленных технологий (ЛТПТ)</strong> - современное многопрофильное образовательное учреждение среднего профессионального образования.</p>
+                </div>
+
+                <div class="history-card">
+                    <div class="year">2020-е - сегодня</div>
+                    <p>Техникум является ведущим центром профессиональной подготовки в Лодейнопольском районе. Открыты мастерские WorldSkills по компетенциям «Мехатроника», «Сетевое администрирование», «Промышленная автоматика». Более 90% выпускников трудоустраиваются по специальности в течение первого года. В 2024 году техникум торжественно отметил <strong>80-летие</strong> со дня основания.</p>
+                    <div class="quote">
+                        <i class="fas fa-graduation-cap"></i> За годы существования подготовлено более 12 000 специалистов, многие из которых стали руководителями производств и наставниками нового поколения.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <div class="container">
+        <p>© Кванториум 2026</p>
+    </div>
+</footer>
+
+</body>
+</html>

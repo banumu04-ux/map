@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Лодейнопольский историко-краеведческий музей | История и экспозиции</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', 'Roboto', system-ui, -apple-system, 'Helvetica Neue', sans-serif;
+            background: #f4efe7;
+            background-image: radial-gradient(circle at 10% 20%, rgba(190, 160, 120, 0.08) 0%, rgba(140, 110, 70, 0.02) 90%);
+            color: #2c2418;
+            line-height: 1.45;
+        }
+
+        .museum-layout {
+            display: flex;
+            flex-wrap: wrap;
+            max-width: 1300px;
+            margin: 2rem auto;
+            padding: 0 1.5rem;
+            gap: 2rem;
+            align-items: stretch;
+            justify-content: center;
+        }
+
+        .photo-side {
+            flex: 1;
+            min-width: 260px;
+            display: flex;
+            flex-direction: column;
+            gap: 1.6rem;
+        }
+
+        .info-center {
+            flex: 2.2;
+            min-width: 300px;
+            background: rgba(255, 253, 248, 0.98);
+            backdrop-filter: blur(0px);
+            border-radius: 2.8rem;
+            box-shadow: 0 25px 45px -12px rgba(0, 0, 0, 0.28), 0 0 0 1px rgba(190, 155, 100, 0.2);
+            overflow: hidden;
+            transition: transform 0.2s;
+        }
+
+        .museum-photo {
+            width: 100%;
+            border-radius: 1.8rem;
+            overflow: hidden;
+            box-shadow: 0 12px 22px -8px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+            background: #e2d5c4;
+            border: 1px solid rgba(160, 125, 80, 0.3);
+        }
+
+        .museum-photo img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.5s ease;
+            object-fit: cover;
+            aspect-ratio: 4 / 3;
+        }
+
+        .museum-photo:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 28px -10px rgba(0, 0, 0, 0.3);
+        }
+
+        .museum-photo:hover img {
+            transform: scale(1.02);
+        }
+
+        .hero-header {
+            background: linear-gradient(115deg, #5f3e2c 0%, #3a2a1f 100%);
+            padding: 2rem 2rem 1.5rem;
+            color: #ffefdb;
+            text-align: center;
+        }
+
+        .hero-header h1 {
+            font-size: 2rem;
+            letter-spacing: -0.3px;
+            font-weight: 700;
+            text-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
+        .hero-header p {
+            font-size: 1rem;
+            margin-top: 0.5rem;
+            opacity: 0.9;
+            font-style: italic;
+        }
+
+        .museum-details {
+            padding: 2rem 2rem 2rem;
+        }
+
+        .info-block {
+            margin-bottom: 2rem;
+            border-left: 4px solid #b87c4f;
+            padding-left: 1.3rem;
+        }
+
+        .info-block h2 {
+            font-size: 1.6rem;
+            font-weight: 600;
+            color: #4d2f1b;
+            margin-bottom: 0.75rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .info-block p, .info-block ul {
+            font-size: 1rem;
+            color: #3e3024;
+            margin-bottom: 0.7rem;
+        }
+
+        .info-block ul {
+            padding-left: 1.2rem;
+            list-style-type: none;
+        }
+
+        .info-block li {
+            margin: 0.6rem 0;
+            display: flex;
+            align-items: baseline;
+            gap: 8px;
+        }
+
+        .info-block li::before {
+            content: "🏛️";
+            font-size: 0.9rem;
+        }
+
+        .history-timeline {
+            background: #fef1e0;
+            border-radius: 1.5rem;
+            padding: 1.2rem 1.5rem;
+            margin: 1rem 0 1.5rem;
+            border-left: 6px solid #b87c4f;
+        }
+
+        .history-timeline p {
+            margin-bottom: 0.6rem;
+        }
+
+        .history-timeline strong {
+            color: #8b5a2e;
+        }
+
+        .highlight {
+            background: #fef1e0;
+            border-radius: 2rem;
+            padding: 1rem 1.8rem;
+            margin: 1.8rem 0;
+            border: 1px solid #e6cfb5;
+        }
+
+        .exhibit-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+
+        .exhibit-card {
+            background: #faf5ea;
+            border-radius: 1.5rem;
+            padding: 0.8rem 1rem;
+            flex: 1 1 180px;
+            border: 1px solid #e2cfb5;
+            transition: 0.1s;
+        }
+
+        .exhibit-card strong {
+            color: #8b5a2e;
+            display: block;
+            font-size: 1rem;
+        }
+
+        .button-visit, .social-link {
+            display: inline-block;
+            background: #9b6a3e;
+            color: white;
+            text-decoration: none;
+            padding: 0.7rem 1.8rem;
+            border-radius: 40px;
+            font-weight: 600;
+            margin-top: 0.5rem;
+            transition: 0.2s;
+            box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+            border: none;
+            cursor: pointer;
+        }
+
+        .button-visit:hover, .social-link:hover {
+            background: #7b4e2a;
+            transform: scale(0.98);
+            color: white;
+        }
+
+        .contact-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.2rem;
+            margin-top: 1.2rem;
+            font-size: 0.9rem;
+            background: #f7f0e5;
+            padding: 1rem;
+            border-radius: 1.5rem;
+        }
+
+        .contact-row a {
+            color: #9b6a3e;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1px dotted #9b6a3e;
+        }
+        .contact-row a:hover {
+            color: #5a3a1f;
+            border-bottom: 1px solid;
+        }
+
+        .badge {
+            background: #dcc9b2;
+            color: #4a2f1c;
+            border-radius: 60px;
+            padding: 0.2rem 0.8rem;
+            font-size: 0.7rem;
+            font-weight: bold;
+            display: inline-block;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-top: 0.8rem;
+        }
+        .footer-links a {
+            color: #4c3e2e;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .footer-links a:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            text-align: center;
+            padding: 1.8rem;
+            background: #dad0c0;
+            margin-top: 1rem;
+            font-size: 0.8rem;
+            color: #4c3e2e;
+            border-radius: 2rem 2rem 0 0;
+        }
+
+        @media (max-width: 950px) {
+            .museum-layout {
+                flex-direction: column;
+            }
+            .photo-side {
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            .photo-side .museum-photo {
+                max-width: 280px;
+            }
+            .info-center {
+                order: -1;
+            }
+        }
+
+        @media (max-width: 550px) {
+            .hero-header h1 {
+                font-size: 1.5rem;
+            }
+            .museum-details {
+                padding: 1.2rem;
+            }
+        }
+
+        .caption {
+            font-size: 0.7rem;
+            text-align: center;
+            margin-top: 0.5rem;
+            color: #7c6956;
+        }
+    </style>
+</head>
+<body>
+
+<div class="museum-layout">
+    <div class="photo-side">
+        <div class="museum-photo">
+            <img src="https://avatars.mds.yandex.net/i?id=22f4387de9ac859c254e17dbc4653f281a9468b0-4385982-images-thumbs&n=13" alt="Лодейное Поле - Краеведческий музей (главный вход)" loading="lazy">
+            <div class="caption">Краеведческий музей • главный вход</div>
+        </div>
+        <div class="museum-photo">
+            <img src="https://avatars.mds.yandex.net/get-altay/9686455/2a0000018afb27dd10571234b784c6830285/XXL_height" alt="Зал Рождение Балтийского флота" loading="lazy">
+            <div class="caption">Зал «Рождение Балтийского флота»</div>
+        </div>
+    </div>
+    <div class="info-center">
+        <div class="hero-header">
+            <h1>Лодейнопольский историко-краеведческий музей</h1>
+            <h3>📍 Лодейное поле, ул. Урицкого д.39</h3>
+        </div>
+        <div class="museum-details">
+            <div class="info-block">
+                <h2>История музея</h2>
+                <p>Лодейнопольский историко-краеведческий музей был <strong>открыт для посетителей 6 ноября 1991 года</strong>. Однако история его создания началась гораздо раньше - в 1970-х годах, когда энтузиасты-краеведы под руководством <strong>Владимира Ивановича Панфилова</strong> начали собирать первые экспонаты: старинные предметы быта, документы, фотографии, переданные жителями города.</p>
+                <p>Долгие годы коллекция хранилась в небольшой комнате городского Дома культуры, пока не было принято решение о создании полноценного музея. В 1989 году под музей передали <strong>памятник архитектуры XIX века - дом купца Александра Алексеевича Баранова</strong>, построенный в 1878 году. Здание требовало серьёзной реставрации, и два года ушло на восстановление интерьеров: лепнины, изразцовых печей, дубовых лестниц, исторической планировки.</p>
+                <div class="history-timeline">
+                    <p><strong>1970-е</strong> - начало сбора краеведческой коллекции.</p>
+                    <p><strong>1989</strong> - передача музею особняка купца Баранова (ул. Урицкого, 39).</p>
+                    <p><strong>6 ноября 1991</strong> - торжественное открытие музея для посетителей.</p>
+                    <p><strong>2005</strong> - открытие обновлённой экспозиции «Лодейная пристань - рождение Балтийского флота».</p>
+                    <p><strong>2020</strong> - завершение реставрации фасада здания.</p>
+                </div>
+                <p><strong>Основатель и первый директор музея</strong> - Владимир Иванович Панфилов (1937–2010), заслуженный работник культуры РФ. Именно его подвижнический труд лёг в основу музейного собрания. Сегодня музей носит его имя неофициально, а в одном из залов размещена мемориальная экспозиция, посвящённая создателю.</p>
+                <p>Фонды музея постоянно пополняются. На сегодняшний день они насчитывают <strong>более 12 000 единиц хранения</strong>, включая археологические артефакты (каменный век - I тысячелетие н.э.), предметы корабельного дела XVIII–XIX веков, коллекцию старинных икон, документы петровской эпохи, материалы по истории Онежской военной флотилии и уникальные фотографии дореволюционного Лодейного Поля.</p>
+            </div>
+
+            <div class="info-block">
+                <h2>Здание музея - архитектурная жемчужина</h2>
+                <p>Особняк купца Баранова - редкий для Лодейного Поля образец городской усадьбы второй половины XIX века. Здание сочетает элементы классицизма и эклектики. До революции здесь располагались торговые лавки, жилые комнаты и складские помещения. В советское время в здании размещались различные учреждения, пока оно не было передано под музей. Сегодня это <strong>памятник архитектуры регионального значения</strong>, а его парадная лестница и потолочная лепнина привлекают посетителей не меньше, чем экспонаты.</p>
+            </div>
+            <div class="highlight">
+                <h2 style="font-size: 1.4rem; margin-bottom: 0.5rem;">Уникальные экспонаты музея</h2>
+                <div class="exhibit-grid">
+                    <div class="exhibit-card"><strong>Якорь XVIII века</strong> - поднят со дна реки Свирь, принадлежал петровскому судну.</div>
+                    <div class="exhibit-card"><strong>Указ Петра I</strong> о строительстве Олонецкой верфи (копия XIX в. с подлинной подписью).</div>
+                    <div class="exhibit-card"><strong>Спасательный круг с бронекатера БК-31</strong> - реликвия, переданная ветеранами.</div>
+                    <div class="exhibit-card"><strong>Икона «Спас Нерукотворный»</strong> XVIII века из деревянной часовни Свирского погоста.</div>
+                    <div class="exhibit-card"><strong>Морская карта Онежского озера</strong> 1856 года с пометками лоцманов.</div>
+                    <div class="exhibit-card"><strong>Фотоаппарат «Фотокор-1»</strong> 1930-х гг., принадлежавший первому летописцу города.</div>
+                </div>
+                <p style="margin-top: 0.8rem;">Кроме того, в музее хранится коллекция старинных подзорных труб, навигационных приборов, уникальная диорама «Спуск корабля на верфи» (работа ленинградского художника А. Блинкова) и мемориальные вещи Героев Советского Союза - уроженцев Лодейнопольского района.</p>
+            </div>
+            <div class="info-block">
+                <h2>Научная и просветительская деятельность</h2>
+                <p>Музей активно сотрудничает с Институтом истории РАН, Санкт-Петербургским государственным университетом и Российским этнографическим музеем. Ежегодно здесь проводятся <strong>краеведческие чтения «Лодейнопольская старина»</strong>, выпускаются сборники научных статей. Сотрудники музея участвуют в археологических экспедициях на Свири и в Прионежье.</p>
+                <p>Для школьников разработаны интерактивные программы: «Секреты корабелов» (знакомство с инструментами петровской эпохи), «Письмо солдату» (реконструкция полевой почты) и «Ремёсла Свирского края» (мастер-классы по ткачеству и росписи по дереву).</p>
+            </div>
+
+            <div class="info-block">
+                <h2>Режим работы и контакты</h2>
+                <p><strong>Вторник - воскресенье:</strong> 10:00 - 17:30 (касса до 17:00)<br>
+                <strong>Понедельник:</strong> выходной<br>
+                <strong>Санитарный день:</strong> последняя пятница месяца</p>
+                <p><strong>Стоимость билетов:</strong> взрослый - 150 ₽, школьники/студенты/пенсионеры - 80 ₽. Экскурсионное обслуживание (группа до 10 чел.) - 400 ₽. Аудиогид на русском или английском языке - 100 ₽.</p>
+                <p>Для организованных групп от 5 человек - скидка 10%. Проводятся тематические квесты для школьников (предварительная запись по телефону).</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer>
+    <p>© Кванториум 2026 | Лодейнопольский историко-краеведческий музей </p>
+</footer>
+
+<script>
+    document.getElementById('planButton')?.addEventListener('click', function(e) {
+        e.preventDefault();
+        alert('Расписание и бронирование экскурсий: https://www.museum-lodeynoe.ru/visitors');
+        window.open('https://www.museum-lodeynoe.ru/visitors', '_blank');
+    });
+</script>
+
+</body>
+</html>

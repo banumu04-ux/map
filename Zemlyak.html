@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Памятник погибшим землякам | Лодейное Поле</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, 'Segoe UI', 'Roboto', 'Inter', sans-serif;
+            background: #edeae4;
+            color: #2c2b28;
+            line-height: 1.45;
+        }
+
+        .header {
+            background: linear-gradient(115deg, #5a4a3a, #3a2e24);
+            color: white;
+            padding: 2rem 1.5rem;
+            text-align: center;
+            border-bottom: 4px solid #c9a87b;
+        }
+
+        .header h1 {
+            font-size: 2rem;
+            letter-spacing: -0.3px;
+            margin-bottom: 0.65rem;
+            font-weight: 700;
+        }
+
+        .location {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255,255,255,0.18);
+            backdrop-filter: blur(4px);
+            padding: 0.45rem 1.2rem;
+            border-radius: 60px;
+            font-size: 1rem;
+            font-weight: 500;
+        }
+
+        .pin-emoji {
+            font-size: 1.3rem;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 1.8rem auto;
+            padding: 0 1.2rem;
+        }
+
+        .card {
+            background: white;
+            border-radius: 28px;
+            margin-bottom: 1.5rem;
+            overflow: hidden;
+            box-shadow: 0 6px 14px rgba(0,0,0,0.05);
+        }
+
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .text {
+            flex: 1.2;
+            padding: 1.5rem 1.5rem 1.5rem 1.8rem;
+        }
+
+        .image {
+            flex: 0.9;
+            padding: 1.5rem 1.8rem 1.5rem 0;
+        }
+
+        .image img {
+            width: 100%;
+            border-radius: 24px;
+            display: block;
+            box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+            background: #dbd5cb;
+        }
+
+        .row-reverse {
+            flex-direction: row-reverse;
+        }
+
+        .row-reverse .image {
+            padding: 1.5rem 0 1.5rem 1.8rem;
+        }
+        .row-reverse .text {
+            padding: 1.5rem 1.8rem 1.5rem 1.5rem;
+        }
+
+        .title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 0.7rem;
+            color: #5a4a3a;
+            border-left: 4px solid #c9a87b;
+            padding-left: 12px;
+        }
+
+        p {
+            margin-bottom: 0.7rem;
+            font-size: 0.95rem;
+            color: #3a3a36;
+            line-height: 1.45;
+        }
+
+        .hint {
+            background: #eef3fc;
+            border-radius: 18px;
+            padding: 0.35rem 0.8rem;
+            font-size: 0.7rem;
+            text-align: center;
+            margin-top: 10px;
+            color: #2c6b8f;
+            display: inline-block;
+            width: 100%;
+        }
+
+        .mini-gallery {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin: 0.8rem 0;
+        }
+        .gallery-img {
+            flex: 1 1 150px;
+            border-radius: 20px;
+            overflow: hidden;
+            background: #f8fafc;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+        .gallery-img img {
+            width: 100%;
+            height: 110px;
+            object-fit: cover;
+            display: block;
+        }
+        .gallery-img span {
+            display: block;
+            font-size: 0.7rem;
+            padding: 6px;
+            text-align: center;
+            background: white;
+        }
+
+        .fact-badge {
+            background: #f0ede8;
+            border-radius: 20px;
+            padding: 0.5rem 1rem;
+            margin: 0.6rem 0;
+            font-size: 0.85rem;
+            border-left: 3px solid #c9a87b;
+        }
+
+        footer {
+            text-align: center;
+            padding: 1rem;
+            background: #3a2e24;
+            color: #cbdbe6;
+            font-size: 0.8rem;
+            margin-top: 1.5rem;
+        }
+
+        @media (max-width: 750px) {
+            .row, .row-reverse {
+                flex-direction: column;
+            }
+            .text, .image, .row-reverse .text, .row-reverse .image {
+                padding: 1.2rem !important;
+            }
+            .header h1 {
+                font-size: 1.5rem;
+            }
+            .title {
+                font-size: 1.3rem;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+
+<div class="header">
+    <h1>Памятник погибшим землякам</h1>
+    <div class="location">
+        <span class="pin-emoji">📍</span>
+        <span>г. Лодейное Поле, площадь Победы (центр города)</span>
+    </div>
+</div>
+
+<div class="container">
+
+    <div class="card">
+        <div class="row">
+            <div class="text">
+                <div class="title">Вечная слава героям</div>
+                <p><strong>Памятник погибшим землякам</strong> - мемориальный комплекс на площади Победы в центре Лодейного Поля. Он посвящён жителям города и района, которые ушли на фронт и не вернулись с полей сражений Великой Отечественной войны.</p>
+                <p>Из Лодейнопольского района на фронт ушли тысячи человек. Многие из них погибли, защищая Родину от фашистских захватчиков. Памятник стал местом, где потомки могут почтить память своих предков, отдавших жизнь за свободу и независимость страны.</p>
+            </div>
+            <div class="image">
+                <img src="https://city-img.travelask.ru/places/d6/4f/d64f04e53f4948eb5af5afb3779334c2.jpg?_=1508515629" alt="Памятник погибшим землякам">
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer>
+    © Кванториум 2026
+</footer>
+</body>
+</html>

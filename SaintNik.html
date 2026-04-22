@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Церковь Николая Чудотворца</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #f5efe7;
+            font-family: 'Segoe UI', 'Roboto', 'Georgia', 'Times New Roman', serif;
+            line-height: 1.5;
+            color: #2c241a;
+        }
+
+        .page-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            background: #fffef7;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            border-radius: 0 0 24px 24px;
+            overflow: hidden;
+        }
+
+        .landmark-hero {
+            position: relative;
+            background: linear-gradient(105deg, #2c3e2b 0%, #1f3a2c 100%);
+            padding: 2.5rem 2rem 2rem 2rem;
+            color: white;
+        }
+
+        .hero-tag {
+            font-size: 0.8rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            background: rgba(255, 215, 170, 0.2);
+            display: inline-block;
+            padding: 0.3rem 1rem;
+            border-radius: 30px;
+            margin-bottom: 1rem;
+            backdrop-filter: blur(2px);
+        }
+
+        .landmark-hero h1 {
+            font-size: 3rem;
+            font-weight: 500;
+            font-family: 'Georgia', serif;
+            margin-bottom: 0;
+            letter-spacing: -0.5px;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+        }
+
+        @media (max-width: 780px) {
+            .landmark-hero h1 { font-size: 2.2rem; }
+            .landmark-hero { padding: 1.8rem; }
+        }
+
+        .image-showcase {
+            padding: 2rem 2rem 0 2rem;
+        }
+
+        .main-img {
+            width: 100%;
+            border-radius: 28px;
+            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.1);
+            display: block;
+            object-fit: cover;
+            aspect-ratio: 1 / 1; 
+            background: #d9cdbc;
+        }
+
+        .img-caption {
+            text-align: center;
+            font-size: 0.85rem;
+            color: #6e5c48;
+            margin-top: 0.8rem;
+            font-style: italic;
+        }
+
+        .content-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            padding: 2rem;
+        }
+
+        .main-info {
+            flex: 1;
+            min-width: 260px;
+        }
+
+        .section-title {
+            font-size: 1.7rem;
+            font-family: 'Georgia', serif;
+            font-weight: 400;
+            border-left: 5px solid #c08242;
+            padding-left: 1rem;
+            margin: 1.5rem 0 1rem 0;
+        }
+
+        .section-title:first-of-type {
+            margin-top: 0;
+        }
+
+        p {
+            margin-bottom: 1.2rem;
+            font-size: 1rem;
+            color: #2f2a24;
+        }
+
+        .history-list {
+            list-style: none;
+            margin: 1rem 0;
+        }
+
+        .history-list li {
+            margin-bottom: 0.8rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .history-list li::before {
+            content: "⛪";
+            position: absolute;
+            left: -0.2rem;
+            top: 0;
+            color: #b97f44;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 760px) {
+            .content-grid {
+                flex-direction: column;
+                padding: 1.5rem;
+            }
+            .section-title {
+                font-size: 1.4rem;
+            }
+        }
+        .con1 {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 450px;
+        }
+    </style>
+</head>
+<body>
+<div class="page-container">
+    <div class="landmark-hero">
+        <h1>Церковь Николая Чудотворца</h1>
+        <h4>📍Лодейное Поле, пр. Ленина</h4>
+    </div>
+
+    <div class="image-showcase">
+        <img class="main-img" 
+             src="https://sun9-52.userapi.com/impg/ZNBM_l2oNqH19aMR0n0IkH7NWBVxae7kxwbi4w/N_Jvp2RX4TA.jpg?size=1280x960&quality=95&sign=96cd1b1eaaf626ba66c5e9ccf97e0ead&type=album"
+             alt="Церковь Николая Чудотворца - реальное фото">
+    </div>
+
+    <div class="content-grid">
+        <div class="main-info">
+            <div class="section-title">О достопримечательности</div>
+            <p><strong>Церковь Николая Чудотворца</strong> - выдающийся памятник культовой архитектуры, расположенный в живописном месте. Храм, освящённый в честь одного из самых почитаемых святых на Руси - Николая Угодника, привлекает паломников и туристов своей удивительной атмосферой, древними фресками и уникальной историей.</p>
+            <p>Первое упоминание о деревянной церкви на этом месте относится к XIV веку. Каменное здание в стиле русского узорочья с элементами классицизма было возведено в конце XVII столетия на средства прихожан и местных купцов. За столетия храм пережил пожары, войны и годы забвения, но вновь воссиял как духовный центр края.</p>
+            
+            <div class="section-title">Исторический путь</div>
+            <ul class="history-list">
+                <li><strong>1380 год</strong> - первое летописное упоминание о деревянном храме свт. Николая.</li>
+                <li><strong>1698 год</strong> - строительство каменной церкви на средства купца Григория Малыгина.</li>
+                <li><strong>1930-е годы</strong> - закрытие и разорение в советский период, утрачены колокола.</li>
+                <li><strong>1991 год</strong> - возвращение верующим, начало масштабной реставрации.</li>
+                <li><strong>2025 год</strong> - полное восстановление иконостаса и уникальных росписей.</li>
+            </ul>
+            <p>Сегодня церковь является действующим храмом и признана объектом культурного наследия федерального значения. Ежегодно здесь проводятся экскурсии, звучат колокольные концерты и проходят православные праздники.</p>
+            
+            <div class="section-title">Архитектурные особенности</div>
+            <p>Храм построен в традициях «нарышкинского барокко» с элементами древнерусского зодчества. Белокаменный декор, изящные кокошники, шатровая колокольня и резные наличники - отличительные черты церкви. Внутри сохранились уникальные фрагменты фресок XVIII века и резной иконостас, выполненный мастерами Палеха. Высота центральной главы с крестом достигает 42 метров, что делает церковь доминантой окрестного пейзажа.</p>
+        </div>
+    </div>
+</div>
+<footer>
+    <div class="con1">
+    <p>© Кванториум 2026</p>
+    </div>
+</footer>
+</body>
+</html>
